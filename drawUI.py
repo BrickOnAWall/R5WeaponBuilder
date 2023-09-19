@@ -153,7 +153,7 @@ class MyWindow(QMainWindow):
         global ammoClipLine, ammoClip
         ammoClipLine = QLineEdit()
         weaponLayout.addWidget(ammoClipLine)
-        ammoClip = ammoClipLine.text()
+        
         
         
         # Add a button to the tool bar that allows the user to generate a weapon
@@ -249,9 +249,9 @@ class MyWindow(QMainWindow):
         #Create dictionary to send to generateWeapon.py
         damageNear = damageNearLine.text()
         damageFar = damageFarLine.text()
-        
+        ammoClip = ammoClipLine.text()
         #Send weapon info to generateWeapon.py
-        os.system("python generateWeapon.py " + weaponName + " " + weaponDescription + " " + weaponCategory + " " + ammoCategory + " " + folderDirectory + " " + damageNear + " " + damageFar)
+        os.system("python generateWeapon.py " + weaponName + " " + weaponDescription + " " + weaponCategory + " " + ammoCategory + " " + folderDirectory + " " + damageNear + " " + damageFar + " " + ammoClip)
         
        # os.system("python generateWeapon.py " + weaponName + " " + weaponDescription + " " + weaponCategory + " " + ammoCategory + " " + folderDirectory)
         

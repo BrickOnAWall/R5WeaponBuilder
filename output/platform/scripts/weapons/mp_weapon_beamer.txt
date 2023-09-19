@@ -5,13 +5,13 @@
 WeaponData
 {
 	// General
-replace1
-replace2
-replace3
-replace4
+	   "printname"   									"beamer"
+	   "shortprintname"   									"beamer"
+    "description"   								"a_beamer"
+    "longdesc"										"a_beamer"
 
 	"weapon_type_flags"								"WPT_PRIMARY"
-replace5
+    "ammo_pool_type"								"special"
 
 	// UI/HUD
 	"menu_icon"										"rui/weapon_icons/r5/weapon_r301"
@@ -72,15 +72,15 @@ replace5
 	"sound_zoom_in"									"Weapon_r101_ADS_In"
 	"sound_zoom_out"								"Weapon_r101_ADS_Out"
 
-replace8
+special
 	"ammo_default_total"							"250"
 	"ammo_stockpile_max"							"250"
 	"ammo_no_remove_from_stockpile"					"1"
 	"ammo_min_to_fire"								"1"
 
 	// Damage - When Used by Players
-replace6
-replace7
+    "damage_near_value"   							"21"
+    "damage_far_value"   							"16"
 	"damage_very_far_value"							"14"
 	"damage_near_value_titanarmor"					"14"
 	"damage_far_value_titanarmor" 					"14"

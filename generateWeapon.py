@@ -22,6 +22,7 @@ ammoCategory = sys.argv[4]
 folderDirectory = sys.argv[5]
 damageNear = sys.argv[6]
 damageFar = sys.argv[7]
+ammoClip = sys.argv[8]
 
 devfile = f"{folderDirectory}/platform/scripts/vscripts/ai/sh_dev_npc_settings.gnut"
 mapSpawn = f"{folderDirectory}/platform/scripts/vscripts/_mapspawn.gnut"
@@ -45,6 +46,7 @@ weaponDescLongStr =  f'    "longdesc"										"{weaponDescription}"'
 ammoCategoryStr =    f'    "ammo_pool_type"								"{ammoType}"'
 damageNearStr =      f'    "damage_near_value"   							"{damageNear}"'
 damageFarStr =       f'    "damage_far_value"   							"{damageFar}"'
+ammoClipStr =        f'    "ammo_clip_size"   								"{ammoClip}"'
 
 
 #Create the function that finds the type of weapon and matches it to its type in types/
@@ -65,6 +67,7 @@ def generate():
                     line = line.replace("replace5", ammoCategoryStr)
                     line = line.replace("replace6", damageNearStr)
                     line = line.replace("replace7", damageFarStr)
+                    line = line.replace("replace8", ammoClipStr)
                     
                     dest.write(line)
 
@@ -88,7 +91,7 @@ def generateMapSpawn():
                 f.write(line)
     
 def generateDevFile():
-    devfileStr = f'SetupDevCommand( "{weaponCategory}: {weaponName}", "give mp_weapon_{weaponName}" )'
+    devfileStr = f'SetupDevCommand( "{weaponCategory.upper()}: {weaponName.upper()}", "give mp_weapon_{weaponName}" )'
     
     #Copy mapSpawn file to /output/_mapspawn.gnut and store mapSpawnStr in it
     with open(devfile, 'r') as src, open("output/platform/scripts/vscripts/ai/sh_dev_npc_settings.gnut", 'w') as f:
