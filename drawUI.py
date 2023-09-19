@@ -144,6 +144,25 @@ class MyWindow(QMainWindow):
         damageFarLine = QLineEdit()
         weaponLayout.addWidget(damageFarLine)
         
+        # Add a label for fireRateLabel
+        fireRateLabel = QLabel("Fire Rate:")
+        weaponLayout.addWidget(fireRateLabel)
+        
+        # Add fireRateLine to the Make New Weapon tab
+        global fireRateLine, fireRate
+        fireRateLine = QLineEdit()
+        weaponLayout.addWidget(fireRateLine)
+        
+        
+        # Add a label for reloadTimeLabel
+        reloadTimeLabel = QLabel("Reload Time:")
+        weaponLayout.addWidget(reloadTimeLabel)
+        
+        # Add reloadTimeLine to the Make New Weapon tab
+        global reloadTimeLine, reloadTime
+        reloadTimeLine = QLineEdit()
+        weaponLayout.addWidget(reloadTimeLine)
+        
         
         # Add a label for ammoClipLabel
         ammoClipLabel = QLabel("Ammo Clip:")
@@ -154,6 +173,16 @@ class MyWindow(QMainWindow):
         ammoClipLine = QLineEdit()
         weaponLayout.addWidget(ammoClipLine)
         
+
+        # Create a label for burstClipLabel
+        burstClipLabel = QLabel("Fire/Burst Count | Leave at one for full auto:")
+        weaponLayout.addWidget(burstClipLabel)
+        
+        # Create a line edit for burstClipList
+        global burstClipList, burstClipAmount
+        burstClipList = QLineEdit()
+        weaponLayout.addWidget(burstClipList)
+    
         
         
         # Add a button to the tool bar that allows the user to generate a weapon
@@ -246,12 +275,17 @@ class MyWindow(QMainWindow):
         weaponCategory = weaponCategoryList.currentItem().text()
         ammoCategory = ammoCategoryList.currentItem().text()
         
-        #Create dictionary to send to generateWeapon.py
+        #Create values
         damageNear = damageNearLine.text()
         damageFar = damageFarLine.text()
         ammoClip = ammoClipLine.text()
+        fireRate = fireRateLine.text()
+        reloadTime = reloadTimeLine.text()
+        burstClipAmount = burstClipList.text()
+
+        
         #Send weapon info to generateWeapon.py
-        os.system("python generateWeapon.py " + weaponName + " " + weaponDescription + " " + weaponCategory + " " + ammoCategory + " " + folderDirectory + " " + damageNear + " " + damageFar + " " + ammoClip)
+        os.system("python generateWeapon.py " + weaponName + " " + weaponDescription + " " + weaponCategory + " " + ammoCategory + " " + folderDirectory + " " + damageNear + " " + damageFar + " " + ammoClip + " " + fireRate + " " + reloadTime + " " + burstClipAmount)
         
        # os.system("python generateWeapon.py " + weaponName + " " + weaponDescription + " " + weaponCategory + " " + ammoCategory + " " + folderDirectory)
         

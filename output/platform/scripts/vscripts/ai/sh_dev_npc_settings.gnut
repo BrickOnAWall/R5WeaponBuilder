@@ -57,9 +57,7 @@ void function SetupWeapons()
 	SetupDevCommand( "Rifle: Hemlok", "give mp_weapon_hemlok" )
 	SetupDevCommand( "Rifle: R-301", "give mp_weapon_rspn101" )
 
-    SetupDevCommand( "RIFLE: BEAMER", "give mp_weapon_beamer" )
-    SetupDevCommand( "RIFLE: beamer", "give mp_weapon_beamer" )
-    SetupDevCommand( "RIFLE: refractor", "give mp_weapon_refractor" )
+    SetupDevCommand( "RIFLE: BEAM", "give mp_weapon_beam" )
 
 	// SMGs
 	SetupDevCommand( "SMG: Alternator", "give mp_weapon_alternator_smg" )

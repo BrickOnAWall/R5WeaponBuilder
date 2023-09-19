@@ -23,6 +23,9 @@ folderDirectory = sys.argv[5]
 damageNear = sys.argv[6]
 damageFar = sys.argv[7]
 ammoClip = sys.argv[8]
+fireRate = sys.argv[9]
+reloadTime = sys.argv[10]
+burstClipAmount = sys.argv[11]
 
 devfile = f"{folderDirectory}/platform/scripts/vscripts/ai/sh_dev_npc_settings.gnut"
 mapSpawn = f"{folderDirectory}/platform/scripts/vscripts/_mapspawn.gnut"
@@ -47,6 +50,11 @@ ammoCategoryStr =    f'    "ammo_pool_type"								"{ammoType}"'
 damageNearStr =      f'    "damage_near_value"   							"{damageNear}"'
 damageFarStr =       f'    "damage_far_value"   							"{damageFar}"'
 ammoClipStr =        f'    "ammo_clip_size"   								"{ammoClip}"'
+if(int(burstClipAmount) > 1):
+    burstAmountStr = f'    "burst_fire_count"								"{burstClipAmount}"\n   "burst_fire_delay"								"0.32""'
+else:
+    burstAmountStr = ""
+fireRateStr =        f'    "fire_rate"   									"{fireRate}"'
 
 
 #Create the function that finds the type of weapon and matches it to its type in types/
@@ -68,6 +76,8 @@ def generate():
                     line = line.replace("replace6", damageNearStr)
                     line = line.replace("replace7", damageFarStr)
                     line = line.replace("replace8", ammoClipStr)
+                    line = line.replace("replace9", burstAmountStr)
+                    line = line.replace("replace10", fireRateStr)
                     
                     dest.write(line)
 

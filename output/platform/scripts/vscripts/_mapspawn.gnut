@@ -283,9 +283,7 @@ void function CodeCallback_MapSpawn() // original script entry point
 	PrecacheWeapon( $"mp_weapon_grenade_defensive_bombardment" )
 	
 
-    PrecacheWeapon( $"mp_weapon_beamer" )
-    PrecacheWeapon( $"mp_weapon_beamer" )
-    PrecacheWeapon( $"mp_weapon_refractor" )
+    PrecacheWeapon( $"mp_weapon_beam" )
 
 
 	//Ported weapons section
