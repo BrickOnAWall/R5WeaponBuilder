@@ -41,6 +41,13 @@ class MyWindow(QMainWindow):
         tab_widget.addTab(weaponTab, "Make New Weapon")
         weaponLayout = QVBoxLayout()
         weaponTab.setLayout(weaponLayout)
+        
+        # Create the third tab (Browse Sounds)
+        soundsTab = QWidget()
+        tab_widget.addTab(soundsTab, "Browse Sounds")
+        soundsLayout = QVBoxLayout()
+        soundsTab.setLayout(soundsLayout)
+
 
         # Add a label with a description to the Home tab
         description = QLabel("R5 Reloaded | Weapon Maker is a tool for making new weapons. It allows you to easily create new weapons, easily find weapon models, easily add sounds to your weapon and more!")
