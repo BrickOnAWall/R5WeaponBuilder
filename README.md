@@ -2,7 +2,7 @@
 
 ![banner](https://pbs.twimg.com/profile_banners/1431625538125373441/1641089509/1500x500)
 
-R5 Reloaded Weapon Maker is a user-friendly project created by justanotheruser and gvs-rs. Its primary focus is to provide a streamlined and efficient process for designing weapons in your favorite game. To get started, make sure you have correctly set your game folder path through the settings.
+R5 Reloaded Weapon Maker is a user-friendly project created by justanotheruser. Its primary focus is to provide a streamlined and efficient process for designing weapons in your favorite game. To get started, make sure you have correctly set your game folder path through the settings.
 
 ## 📖 Project Overview
 
