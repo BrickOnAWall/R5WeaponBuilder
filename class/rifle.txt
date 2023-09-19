@@ -78,7 +78,6 @@ replace8
 	"ammo_no_remove_from_stockpile"					"1"
 	"ammo_min_to_fire"								"1"
 	
-replace9
 
 	// Damage - When Used by Players
 replace6
@@ -123,7 +122,13 @@ replace7
 	"npc_rest_time_between_bursts_max"				"0.8"
 
 	// Behavior
-	"fire_rate"   									"13.5"
+replace01
+
+
+
+
+replace9
+
 
 	"viewmodel_offset_hip"                          "0 1.1 0.4"
 	"viewmodel_offset_ads"							"0 0.38 0"

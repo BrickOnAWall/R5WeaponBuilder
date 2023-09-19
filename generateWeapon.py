@@ -51,7 +51,7 @@ damageNearStr =      f'    "damage_near_value"   							"{damageNear}"'
 damageFarStr =       f'    "damage_far_value"   							"{damageFar}"'
 ammoClipStr =        f'    "ammo_clip_size"   								"{ammoClip}"'
 if(int(burstClipAmount) > 1):
-    burstAmountStr = f'    "burst_fire_count"								"{burstClipAmount}"\n   "burst_fire_delay"								"0.32""'
+    burstAmountStr = str(f'    "burst_fire_count"								"{burstClipAmount}"\n   "burst_fire_delay"								"0.32"')
 else:
     burstAmountStr = ""
 fireRateStr =        f'    "fire_rate"   									"{fireRate}"'
@@ -76,8 +76,9 @@ def generate():
                     line = line.replace("replace6", damageNearStr)
                     line = line.replace("replace7", damageFarStr)
                     line = line.replace("replace8", ammoClipStr)
-                    line = line.replace("replace9", burstAmountStr)
-                    line = line.replace("replace10", fireRateStr)
+                    line = line.replace("replace9", fireRateStr)
+                    line = line.replace("replace01", burstAmountStr)
+                    
                     
                     dest.write(line)
 
