@@ -77,7 +77,7 @@ def generate():
                     line = line.replace("replace7", damageFarStr)
                     line = line.replace("replace8", ammoClipStr)
                     line = line.replace("replace9", fireRateStr)
-                    line = line.replace("replace01", burstAmountStr)
+                    line = line.replace("replaceme1", burstAmountStr)
                     
                     
                     dest.write(line)

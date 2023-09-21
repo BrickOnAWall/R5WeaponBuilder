@@ -122,7 +122,7 @@ replace7
 	"npc_rest_time_between_bursts_max"				"0.8"
 
 	// Behavior
-replace01
+replaceme1
 
 
 

@@ -209,61 +209,23 @@ class MyWindow(QMainWindow):
 
     def generateWeapon(self):
         
-        # Check if ammoclipline is number and no letters or space
-        if ammoClipLine.text() == "" or ammoClipLine.text() == "":
+        # Check if all fields are filled in
+        if weaponNameLine.text() == "" or weaponDescriptionLine.text() == "" or weaponCategoryList.currentItem().text() == "" or ammoCategoryList.currentItem().text() == "" or damageNearLine.text() == "" or damageFarLine.text() == "" or ammoClipLine.text() == "" or fireRateLine.text() == "" or reloadTimeLine.text() == "" or burstClipList.text() == "":
             QMessageBox.warning(self, "Error", "Please fill in all fields!")
             return
         
-        #Check if ammoclipline is number and no letters or space
-        if not ammoClipLine.text().isdigit():
-            QMessageBox.warning(self, "Error", "Ammo clip must be a number!")
+        # Check if damage near, damage far, ammo clip, fire rate, reload time, and burst clip fields are filled in as numbers
+        try:
+            damageNear = int(damageNearLine.text())
+            damageFar = int(damageFarLine.text())
+            ammoClip = int(ammoClipLine.text())
+            fireRate = int(fireRateLine.text())
+            reloadTime = int(reloadTimeLine.text())
+            burstClipAmount = int(burstClipList.text())
+        except ValueError:
+            QMessageBox.warning(self, "Error", "You have a letter in a field that only allows numbers!")
             return
-        
-        #Check if ammoclipline is number and no letters or space
-        if int(ammoClipLine.text()) < 0:
-            QMessageBox.warning(self, "Error", "Ammo clip must be a positive number!")
-            return
-        
-        #Check if ammoclipline contains letters or space
-        if ammoClipLine.text().isalpha():
-            QMessageBox.warning(self, "Error", "Ammo clip cannot contain letters!")
-            return
-        
-        # Check if damages have number and no letters or space
-        if damageNearLine.text() == "" or damageFarLine.text() == "":
-            QMessageBox.warning(self, "Error", "Please fill in all fields!")
-            return
-        
-        #Check if damages have number and no letters or space
-        if not damageNearLine.text().isdigit() or not damageFarLine.text().isdigit():
-            QMessageBox.warning(self, "Error", "Damages must be numbers!")
-            return
-        
-        #Check if damages have number and no letters or space
-        if int(damageNearLine.text()) < 0 or int(damageFarLine.text()) < 0:
-            QMessageBox.warning(self, "Error", "Damages must be positive numbers!")
-            return
-        
-        
-        #Check if all fields are filled in
-        if weaponNameLine.text() == "" or weaponDescriptionLine.text() == "" or weaponCategoryList.currentItem().text() == "" or ammoCategoryList.currentItem().text() == "":
-            QMessageBox.warning(self, "Error", "Please fill in all fields!")
-            return
-        
-        #Check if name is less than 3 characters but less than 12
-        if len(weaponNameLine.text()) < 3 or len(weaponNameLine.text()) > 12:
-            QMessageBox.warning(self, "Error", "Weapon name must be between 3 and 12 characters!")
-            return
-        
-        #Check if description is less more than 3 characters but less than 12
-        if len(weaponDescriptionLine.text()) < 3 or len(weaponDescriptionLine.text()) > 36:
-            QMessageBox.warning(self, "Error", "Weapon description must be between 3 and 36 characters!")
-            return
-        
-        #Check if folder directory is selected
-        if folderDirectory == "":
-            QMessageBox.warning(self, "Error", "Please select a folder directory!")
-            return
+
         
         #Replace spaces with underscores
         weaponNameLine.setText(weaponNameLine.text().replace(" ", "_"))
