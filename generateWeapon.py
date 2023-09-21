@@ -25,10 +25,10 @@ damageFar = sys.argv[7]
 ammoClip = sys.argv[8]
 fireRate = sys.argv[9]
 reloadTime = sys.argv[10]
-burstClipAmount = sys.argv[11]
+burstClipAmount = 1
 
-devfile = f"{folderDirectory}/platform/scripts/vscripts/ai/sh_dev_npc_settings.gnut"
-mapSpawn = f"{folderDirectory}/platform/scripts/vscripts/_mapspawn.gnut"
+playlistFile = f"{folderDirectory}/platform/playlists_r5_patch.txt"
+
 
     
 if ammoCategory == "HEAVY":
@@ -83,38 +83,48 @@ def generate():
                     dest.write(line)
 
             print(f"File types/mp_weapon_rifle.txt copied and modified to '{output_file}' successfully.")
-            generateMapSpawn()
-            generateDevFile()
+            generatePlaylist()
         except FileNotFoundError:
             print(f"Error: File rifle.txt not found.")
 
-def generateMapSpawn():
-    mapSpawnStr = f'PrecacheWeapon( $"mp_weapon_{weaponName}" )'
+def generatePlaylist():
+     global playlistStr, playlistStr2
+     #Make generatedWeapons.txt
+     with open("generatedWeapons.txt", 'a') as f:
+        with open("generatedWeapons.txt", 'r') as f:
+            global generatedWeapons
+            generatedWeapons = f.read().strip()
+
+     print(generatedWeapons)
+     
+     playlistStr = f'custom_weapon_list "mp_weapon_volt_smg mp_weapon_sentinel' + " " + generatedWeapons + f" mp_weapon_{weaponName}" + '"'
+
+     #Store generated weapon in generatedWeapons.txt but don't overwrite 
+     if os.path.isfile("generatedWeapons.txt"):
+        with open("generatedWeapons.txt", 'a') as f:
+            f.write(f"mp_weapon_{weaponName} ")
+
+
+     #Store weapon category in _mapspawn.gnut
+     if weaponCategory == "RIFLE":
+         weaponCategoryMain = "assault"
+     playlistStr2 = f'mp_weapon_{weaponName}_class                     "{weaponCategoryMain}"'
+
     #Copy mapSpawn file to /output/_mapspawn.gnut and store mapSpawnStr in it
-    with open(mapSpawn, 'r') as src, open("output/platform/scripts/vscripts/_mapspawn.gnut", 'w') as f:
+     with open(playlistFile, 'r') as src, open("output/platform/playlists_r5_patch.txt", 'w') as f:
+        print("Opened Playlist File")
         #Use for loop to get line number
         lineNum = 0
         for line in src:
             lineNum += 1
-            if lineNum == 285:
-                f.write("\n    " + mapSpawnStr + "\n")
+            if lineNum == 68:
+                #Delete line
+                
+                f.write("\n                " + playlistStr + "\n")
+                f.write("\n                " + playlistStr2)
             else:
                 f.write(line)
     
-def generateDevFile():
-    devfileStr = f'SetupDevCommand( "{weaponCategory.upper()}: {weaponName.upper()}", "give mp_weapon_{weaponName}" )'
-    
-    #Copy mapSpawn file to /output/_mapspawn.gnut and store mapSpawnStr in it
-    with open(devfile, 'r') as src, open("output/platform/scripts/vscripts/ai/sh_dev_npc_settings.gnut", 'w') as f:
-        #Use for loop to get line number
-        lineNum = 0
-        for line in src:
-            lineNum += 1
-            if(weaponCategory == "RIFLE"):
-                if lineNum == 59:
-                    f.write("\n    " + devfileStr + "\n")
-                else:
-                    f.write(line)
     
     
 generate()

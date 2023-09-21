@@ -19,8 +19,7 @@ class MyWindow(QMainWindow):
             os.makedirs("output/platform")
             os.makedirs("output/platform/scripts")
             os.makedirs("output/platform/scripts/weapons")
-            os.makedirs("output/platform/scripts/vscripts")
-            os.makedirs("output/platform/scripts/vscripts/ai")
+
         
 
         self.setWindowTitle("R5 Reloaded | Weapon Maker")
@@ -196,6 +195,7 @@ class MyWindow(QMainWindow):
         
     def selectFolder(self):
         # Get the selected folder directory
+        global folderDirectory
         folderDirectory = QFileDialog.getExistingDirectory(self, "Select Folder Directory")
         #Output the selected folder directory to config.txt
         f = open("config.txt", "w")
