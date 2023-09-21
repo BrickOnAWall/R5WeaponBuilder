@@ -261,7 +261,6 @@ def main():
         #Assign folderDirectory from config file
         global folderDirectory
         folderDirectory = open("config.txt", "r").read()
-        print(folderDirectory)
 
     
     app = QApplication(sys.argv)
