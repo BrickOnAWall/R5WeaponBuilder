@@ -20,6 +20,7 @@ If you encounter any errors during installation or usage, there are a few common
 
 3. **Reinstallation**: If errors persist, you might need to uninstall Python and then reinstall it.
 
-We hope this project enhances your gaming experience and makes weapon creation a breeze. If you have any questions or need further assistance, feel free to reach out.
 
 4. **Report Bugs / Give Suggestions**: Please report any bugs you encounter or suggestions you may have.
+
+We hope this project enhances your gaming experience and makes weapon creation a breeze. If you have any questions or need further assistance, feel free to reach out.
